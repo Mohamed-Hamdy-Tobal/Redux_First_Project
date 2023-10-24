@@ -1,41 +1,192 @@
-.content {
+*, ::after,::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul {
+    list-style: none;
+}
+input:focus,
+textarea:focus {
+    outline: none;
+}
+a {
+    text-decoration: none !important;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* --------- */
+
+header {
+    padding: 20px 60px;
+    background: #333;
+}
+header .content {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
 }
-h1 {
-    width: fit-content;
-    margin: 50px auto;
-}
-.main-counter {
-    font-size: 40px;
-    margin-bottom: 20px;
-    color: #333;
+header .content a{
+    color: #fff;
+    font-size: 25px;
     font-weight: bold;
 }
-button {
-    display: inline-block;
-    width: 150px;
-    height: 40px;
-    font-size: 18px;
-    border: none;
-    border-radius: 6px;
-    color: #fff;
+header .content button{
+    background: transparent;
+    border: 2px solid cornflowerblue;
+    width: 70px;
+    height: 30px;
     text-align: center;
-    line-height: 40px;
-    margin-right: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: cornflowerblue;
     cursor: pointer;
 }
-button.increase {
-    background: teal;
+.add-form {
+    padding: 60px 0;
 }
-button.decrease {
-    background: tomato;
+.add-form .container{
+    display: flex;
+    justify-content: center;
 }
-.SHBtn {
+.add-form .container form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+}
+.add-form .container form label{
     display: block;
-    margin: 30px auto 0;
-    background: darkblue;
+    margin-bottom: 2px;
+}
+.add-form .container form .grp{
+    width: 100%;
+}
+.add-form .container form input:not(input[type='submit']),
+.add-form .container form textarea{
+    padding: 7px 10px;
+    border: 1.5px solid #ddd;
+    width: 500px;
+    border-radius: 5px;
+}
+.add-form .container form textarea{
+    height: 100px;
+}
+.add-form .container form input[type='submit'] {
+    background: #2959b4;
+    border: 2px solid #2959b4;
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+}
+.add-form .container form input[type='submit']:hover {
+    opacity: .9;
+}
+
+.App hr {
+    width: 60%;
+    margin: auto;
+    border-color: #ccc;
+}
+.post-contain {
+    padding: 60px 0;
+}
+.post-contain .main-content{
+    display: flex;
+    justify-content: center;
+}
+.post-contain .main-content .book{
+    padding: 20px 30px;
+    width: 50%;
+}
+.post-contain .main-content .book:first-child{
+    border-right: 2px solid #ccc;
+}
+.post-contain .main-content .book h1{
+    margin-bottom: 20px;
+}
+.post-contain .main-content .book .my-list,
+.post-contain .main-content .book .my-info{
+    border: 2px solid #ccc;
+    padding: 12px 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+.post-contain .main-content .book .my-list .control{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post-contain .main-content .book .my-info{
+    background-color: #ccc;
+}
+.post-contain .main-content .book .control span{
+    font-size: 14px;
+}
+.post-contain .main-content .book .control .btns{
+    display: flex;
+    gap: 10px;
+}
+.post-contain .main-content .book .control button{
+    background: #2959b4;
+    border: 2px solid #2959b4;
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    font-size: 14px !important;
+}
+.post-contain .main-content .book .control button:last-child{
+    background: tomato;
+    border: 2px solid tomato
+}
+.post-contain .main-content .book .control button:hover {
+    opacity: .9;
+}
+
+@media (max-width: 991px) {
+    .post-contain .main-content {
+        flex-direction: column;
+    }
+    .post-contain .main-content .book {
+        width: 100%;
+        padding: 20px 0;
+    }
+    .post-contain .main-content .book:first-child {
+    border-right: 2px solid transparent;
+}
+}
+
+@media (max-width: 567px) {
+    header {
+        padding: 20px 0px;
+        background: #333;
+    }
+    .add-form .container form input:not(input[type='submit']), 
+    .add-form .container form textarea {
+        width: 100%;
+    }
+    .add-form .container{
+        display: block;
+    }
 }
