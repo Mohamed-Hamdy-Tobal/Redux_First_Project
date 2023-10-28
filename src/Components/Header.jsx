@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { LogInOut } from "../Store/AuthSlice"
+import { LogInOut } from "../Store/Reducers/AuthSlice"
 
 const Header = () => {
 

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { insertBooks } from "../../Store/BookSlice"
+import { insertBooks } from"../../Store/Reducers/BookSlice"
 
 const Add = () => {
 
@@ -13,7 +13,6 @@ const Add = () => {
 
     const handlerForm = (e) => {
         e.preventDefault()
-        console.log("Submit")
         const data = {title:title, description:desc.current.value, price:price}
         dispatch(insertBooks(data))
         
@@ -25,11 +24,9 @@ const Add = () => {
 
     const titleHandler = (e) => {
         setTitle(e.target.value)
-        console.log("Submit", title)
     }
     const priceHandler = (e) => {
         setPrice(e.target.value)
-        console.log("Submit", price)
     }
 
     return (

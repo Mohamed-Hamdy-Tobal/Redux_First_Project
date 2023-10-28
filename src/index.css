@@ -35,13 +35,22 @@ header .content a{
 header .content button{
     background: transparent;
     border: 2px solid cornflowerblue;
-    width: 70px;
-    height: 30px;
+    width: 90px;
+    height: 40px;
     text-align: center;
     font-weight: bold;
     border-radius: 5px;
     color: cornflowerblue;
     cursor: pointer;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+}
+header .content button:hover{
+    background: cornflowerblue;
+    color: #fff;
 }
 .add-form {
     padding: 60px 0;

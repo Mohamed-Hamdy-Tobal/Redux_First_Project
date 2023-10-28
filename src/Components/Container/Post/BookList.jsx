@@ -1,10 +1,10 @@
-import axios from "axios";
+// import axios from "axios";
 import Swal from 'sweetalert2'
-import { getBooks } from "../../../Store/BookSlice";
+import { deleteBooks } from "../../../Store/Reducers/BookSlice";
 import { useDispatch } from "react-redux";
 
 /* eslint-disable react/prop-types */
-const BookList = ({loading, books, isLoggedIn}) => {
+const BookList = ({loading, books, isLoggedIn, getBook}) => {
 
     const dispatch = useDispatch()
 
@@ -28,15 +28,7 @@ const BookList = ({loading, books, isLoggedIn}) => {
             reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.delete(`http://localhost:3000/books/${productId}`)
-                        .then(response => {
-                            console.log('Deleted successfully');
-                            console.log(response);
-                            dispatch(getBooks(books))
-                        })
-                        .catch(error => {
-                            console.error('Error deleting data:', error);
-                        });
+                    dispatch(deleteBooks(productId)).unwrap().then((data) => {console.log(data)})
                     swalWithBootstrapButtons.fire(
                         'Deleted!',
                         'Your file has been deleted.',
@@ -61,8 +53,8 @@ const BookList = ({loading, books, isLoggedIn}) => {
                 <div className="control" key={item.id}>
                     <span>{item.title}</span>
                     <div className="btns">
-                        <button className="btn btn-book">Read</button>
-                        <button className="btn btn-book" disabled={!isLoggedIn} onClick={() => {deleteProduct(item.id)}}>Delete</button>
+                        <button className="btn btn-book" onClick={() => {getBook(item.id)}}>Read</button>
+                        <button className="btn btn-book" disabled={!isLoggedIn} onClick={() => {deleteProduct(item)}}>Delete</button>
                     </div>
                 </div>
             </>
